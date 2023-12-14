@@ -6,10 +6,12 @@ function matmul(a, b)
   integer :: i, j
 
   allocate(c(size(a, 1), size(b, 2)))
+  print*, size(a, 1), size(b, 2)
 
   do i = 1, size(a, 1)
     do j = 1, size(b, 2)
       c(i, j) = dot_product(a(i, :), b(:, j))
+      print*, dot_product(a(i, :), b(:, j))
     end do
   end do
 
@@ -35,7 +37,7 @@ program main
   table2 = 0.0
   results = 0.0
 
-  write(*,*) 'Enter values for Matrix 1 (all unneeded values can be left blank or as 0):'
+  write(*,*) 'Enter values for Matrix 1 (all unneeded values can be left as 0):'
   do i = 1, size1
     do j = 1, size2
       write(*,*) 'Matrix1(', i, ',', j, '):'
@@ -44,9 +46,9 @@ program main
   end do
 
   ! Input values for Matrix 2 from the user
-  write(*,*) 'Enter values for Matrix 2 (all unneeded values can be left blank or as 0):'
-  do i = 1, size1
-    do j = 1, size2
+  write(*,*) 'Enter values for Matrix 2 (all unneeded values can be left as 0):'
+  do i = 1, size2
+    do j = 1, size3
       write(*,*) 'Matrix2(', i, ',', j, '):'
       read(*,*) table2(i, j)
     end do
@@ -56,9 +58,11 @@ program main
 
   print*, 'Matrix Multiplication Results:'
   do i = 1, size(results, 1)
+    print*, "["
     do j = 1, size(results, 2)
       print*, results(i, j)
     end do
+    print*, "]"
   end do
 
   deallocate(table1, table2, results)
