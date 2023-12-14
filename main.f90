@@ -20,56 +20,39 @@ end function matmul
 program main
 
   real, allocatable :: table1(:,:), table2(:,:), results(:,:)
+  integer :: i, j, size1, size2, size3
 
-  allocate(table1(10, 10), table2(10, 10), results(10, 10))
+  write(*,*) 'Enter the size for matrix 1 rows:'
+  read(*,*) size1
+  write(*,*) 'Enter the size for matrix 1 columns:'
+  read(*,*) size2
+  write(*,*) 'Enter the size for matrix 2 columns:'
+  read(*,*) size3
+
+  allocate(table1(size1, size2), table2(size2, size3), results(size1, size3))
 
   table1 = 0.0
   table2 = 0.0
   results = 0.0
 
-  !table1 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]  !mock tables that did NOT work smh ;;;--;;;
-  !table2 = [[1,5],[2,6],[3,7],[4,8]]                         !mock tables that did not work smh ;-;
+  write(*,*) 'Enter values for Matrix 1 (all unneeded values can be left blank or as 0):'
+  do i = 1, size1
+    do j = 1, size2
+      write(*,*) 'Matrix1(', i, ',', j, '):'
+      read(*,*) table1(i, j)
+    end do
+  end do
 
-  ! Metric 1
-  table1(1,1) = 1
-  table1(1,2) = 2
-  table1(1,3) = 3
-  table1(1,4) = 4
-
-  table1(2,1) = 5
-  table1(2,2) = 6
-  table1(2,3) = 7
-  table1(2,4) = 8
-
-  table1(3,1) = 9
-  table1(3,2) = 10
-  table1(3,3) = 11
-  table1(3,4) = 12
-
-  table1(4,1) = 13
-  table1(4,2) = 14
-  table1(4,3) = 15
-  table1(4,4) = 16
-
-  ! Metric 2
-  table2(1,1) = 1
-  table2(2,1) = 2
-  table2(3,1) = 3
-  table2(4,1) = 4
-
-  table2(1,2) = 5
-  table2(2,2) = 6
-  table2(3,2) = 7
-  table2(4,2) = 8
+  ! Input values for Matrix 2 from the user
+  write(*,*) 'Enter values for Matrix 2 (all unneeded values can be left blank or as 0):'
+  do i = 1, size1
+    do j = 1, size2
+      write(*,*) 'Matrix2(', i, ',', j, '):'
+      read(*,*) table2(i, j)
+    end do
+  end do
 
   results = matmul(table1, table2)
-
-  ! results should be:
-  !  30, 70,
-  !  70, 174,
-  !  110, 278,
-  !  150, 382
-  ! verified this irl and online using matrixmultiplication.xyz
 
   print*, 'Matrix Multiplication Results:'
   do i = 1, size(results, 1)
