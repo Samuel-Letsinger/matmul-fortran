@@ -1,1 +1,3 @@
 run = "gfortran main.f90 -o main && ./main"
+
+hidden = [".gitignore", ".config", "main.exe"]
