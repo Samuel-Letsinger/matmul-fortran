@@ -21,15 +21,15 @@ program main
   table2 = 0.0
   results = 0.0
 
-  !table1 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
-  !table2 = [[1,5],[2,6],[3,7],[4,8]]
+  !table1 = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]  !mock tables that did NOT work smh ;;;--;;;
+  !table2 = [[1,5],[2,6],[3,7],[4,8]]                         !mock tables that did not work smh ;-;
 
   results = matmul(table1, table2)
 
   ! results should be:
-  !  30, 70
-  !  70, 174
-  !  110, 278
+  !  30, 70,
+  !  70, 174,
+  !  110, 278,
   !  146, 374
   ! verified this irl and online using matrixmultiplication.xyz
 
