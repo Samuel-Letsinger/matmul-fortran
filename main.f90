@@ -6,12 +6,10 @@ function matmul(a, b)
   integer :: i, j
 
   allocate(c(size(a, 1), size(b, 2)))
-  print*, size(a, 1), size(b, 2)
 
   do i = 1, size(a, 1)
     do j = 1, size(b, 2)
       c(i, j) = dot_product(a(i, :), b(:, j))
-      print*, dot_product(a(i, :), b(:, j))
     end do
   end do
 
