@@ -43,7 +43,6 @@ program main
     end do
   end do
 
-  ! Input values for Matrix 2 from the user
   write(*,*) 'Enter values for Matrix 2 (all unneeded values can be left as 0):'
   do i = 1, size2
     do j = 1, size3
